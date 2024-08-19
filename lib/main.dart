@@ -71,6 +71,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
+              SizedBox(height: 1.0),
+            Align (
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {
+                  print('Esqueceu a senha?');
+                },
+                child: Text(
+                  'Esqueceu a senha?',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[600],
+                    decoration: TextDecoration.underline,
+                    ),
+                ),
+              ),
+            ),
               SizedBox(height: 40),
                SizedBox(
                 width: 290,
