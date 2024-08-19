@@ -71,9 +71,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 32.0),
+              SizedBox(height: 40),
                SizedBox(
-                width: 290, // Largura total
+                width: 290,
+                height: 50, // Largura total
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -82,7 +83,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -100,13 +100,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 16.0),
               SizedBox(
-                width: 290, // Largura total
+                width: 290,
+                height: 50, // Largura total
                 child: ElevatedButton(
                   onPressed: () {
                     print('Navegar para tela de cadastro');
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
