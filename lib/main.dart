@@ -37,111 +37,154 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFormField(
-                controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder( borderRadius: BorderRadius.circular(30),),
-                ),
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor, insira seu email';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 16.0),
-              TextFormField(
-                controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Senha',  border: OutlineInputBorder( borderRadius: BorderRadius.circular(30),),),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor, insira sua senha';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 1.0),
-            Align (
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  print('Esqueceu a senha?');
-                },
-                child: Text(
-                  'Esqueceu a senha?',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
-                    decoration: TextDecoration.underline,
-                    ),
-                ),
-              ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/img_fundo_cadastro.png',
+              fit: BoxFit.cover,
             ),
-              SizedBox(height: 40),
-               SizedBox(
-                width: 290,
-                height: 50, // Largura total
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      print('Email: ${_emailController.text}');
-                      print('Senha: ${_passwordController.text}');
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    backgroundColor: Colors.blue,
-                  ),
-                  child: Text(
-                    'Entrar',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+          ),
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.5),
+            ),
+          ),
+          // Conteúdo principal da tela
+          Column(
+            children: [
+              // AppBar customizado com fundo transparente
+              AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: Text('Login'),
               ),
-              SizedBox(height: 16.0),
-              SizedBox(
-                width: 290,
-                height: 50, // Largura total
-                child: ElevatedButton(
-                  onPressed: () {
-                    print('Navegar para tela de cadastro');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    backgroundColor: const Color.fromARGB(255, 10, 209, 70),
-                  ),
-                  child: Text(
-                    'Cadastrar',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Adicionando a logo no topo
+                        Image.asset(
+                          'assets/logoGSA_png.png',
+                          height: 200, 
+                        ),
+                        SizedBox(height: 32.0), // Espaço entre a logo e o formulário
+                        TextFormField(
+                          controller: _emailController,
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            fillColor: Colors.white,
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Por favor, insira seu email';
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(height: 16.0),
+                        TextFormField(
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            fillColor: Colors.white,
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          obscureText: true,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Por favor, insira sua senha';
+                            }
+                            return null;
+                          },
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              print('Esqueceu a senha?');
+                            },
+                            child: Text(
+                              'Esqueceu a senha?',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 40),
+                        SizedBox(
+                          width: 290,
+                          height: 50,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                print('Email: ${_emailController.text}');
+                                print('Senha: ${_passwordController.text}');
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              backgroundColor: Colors.blue,
+                            ),
+                            child: Text(
+                              'Entrar',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.0),
+                        SizedBox(
+                          width: 290,
+                          height: 50,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              print('Navegar para tela de cadastro');
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              backgroundColor: const Color.fromARGB(255, 10, 209, 70),
+                            ),
+                            child: Text(
+                              'Cadastrar',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
