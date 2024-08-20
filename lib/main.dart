@@ -53,12 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
           // Conteúdo principal da tela
           Column(
             children: [
-              // AppBar customizado com fundo transparente
-              AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                title: Text('Login'),
-              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
