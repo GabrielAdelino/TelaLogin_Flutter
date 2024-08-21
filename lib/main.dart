@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           'assets/logoGSA_png.png',
                           height: 200, 
                         ),
-                        SizedBox(height: 32.0), // Espaço entre a logo e o formulário
+                        const SizedBox(height: 32.0), // Espaço entre a logo e o formulário
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             return null;
                           },
                         ),
-                        SizedBox(height: 16.0),
+                        const SizedBox(height: 16.0),
                         TextFormField(
                           controller: _passwordController,
                           decoration: InputDecoration(
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               print('Esqueceu a senha?');
                             },
-                            child: Text(
+                            child: const Text(
                               'Esqueceu a senha?',
                               style: TextStyle(
                                 fontSize: 14,
@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                         SizedBox(
                           width: 290,
                           height: 50,
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               backgroundColor: Colors.blue,
                             ),
-                            child: Text(
+                            child: const Text(
                               'Entrar',
                               style: TextStyle(
                                 fontSize: 14,
@@ -149,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 16.0),
+                        const SizedBox(height: 16.0),
                         SizedBox(
                           width: 290,
                           height: 50,
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               backgroundColor: const Color.fromARGB(255, 10, 209, 70),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Cadastrar',
                               style: TextStyle(
                                 fontSize: 14,
